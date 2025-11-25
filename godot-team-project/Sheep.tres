@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://bjascw00f0tt2"]
+
+[ext_resource type="Texture2D" uid="uid://es4i0vre6rx4" path="res://sheep_walk.png" id="1_q5qcd"]
+[ext_resource type="Texture2D" uid="uid://ywcy3n8wlxa5" path="res://sheep_eat.png" id="2_vifoe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vifoe"]
+atlas = ExtResource("1_q5qcd")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiy7k"]
+atlas = ExtResource("1_q5qcd")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0i6g"]
+atlas = ExtResource("1_q5qcd")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa5lt"]
+atlas = ExtResource("1_q5qcd")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qylpv"]
+atlas = ExtResource("2_vifoe")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5lne"]
+atlas = ExtResource("2_vifoe")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ptw2"]
+atlas = ExtResource("2_vifoe")
+region = Rect2(384, 128, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vifoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiy7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0i6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa5lt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 0.71,
+"texture": SubResource("AtlasTexture_qylpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5lne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ptw2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
