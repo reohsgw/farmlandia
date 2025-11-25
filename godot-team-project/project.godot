@@ -44,18 +44,11 @@ Shoot={
 
 [layer_names]
 
-<<<<<<< HEAD
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enviroment"
 2d_physics/layer_3="Wolf"
 2d_physics/layer_4="Sheep"
 2d_physics/layer_5="Fence"
-=======
-2d_render/layer_1="Player"
-2d_render/layer_2="Wolves"
-2d_render/layer_3="Sheep"
-2d_render/layer_4="Environment"
->>>>>>> 7c3bc4a1f7fb7a43107f340d2aa6b0c669fdcb16
 
 [rendering]
 
