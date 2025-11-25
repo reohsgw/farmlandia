@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 2d_render/layer_1="Player"
 2d_render/layer_2="Wolves"
 2d_render/layer_3="Sheep"
-2d_render/layer_4="Enviroment"
+2d_render/layer_4="Environment"
 
 [rendering]
 
