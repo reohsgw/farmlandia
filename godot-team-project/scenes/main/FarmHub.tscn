@@ -4981,22 +4981,22 @@ position = Vector2(163, 288)
 scale = Vector2(0.12959589, 0.12568818)
 
 [node name="NPC" parent="YSortLayer" instance=ExtResource("3_p4uke")]
-position = Vector2(120, 149)
+position = Vector2(103, 249)
 
 [node name="NPC2" parent="YSortLayer" instance=ExtResource("3_p4uke")]
-position = Vector2(221, 88)
+position = Vector2(220, 212)
 npc_index = 1
 npc_name = "Farmer Jane"
 active_dialogue = "Can you help me with this puzzle?"
 
 [node name="NPC3" parent="YSortLayer" instance=ExtResource("3_p4uke")]
-position = Vector2(107, 67)
+position = Vector2(111, 150)
 npc_index = 2
 npc_name = "Farmer Joe"
 active_dialogue = "Help me survive the storm!"
 
 [node name="NPC4" parent="YSortLayer" instance=ExtResource("3_p4uke")]
-position = Vector2(144, 17)
+position = Vector2(156, 148)
 npc_index = 3
 npc_name = "Mayor"
 active_dialogue = "You've helped everyone! Thank you!"
