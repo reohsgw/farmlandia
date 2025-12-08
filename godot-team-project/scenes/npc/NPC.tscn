@@ -1,19 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://do8vqrvwx468r"]
+[gd_scene load_steps=11 format=3 uid="uid://do8vqrvwx468r"]
 
 [ext_resource type="Script" uid="uid://cvjmku41ogkdw" path="res://scripts/NPC.gd" id="1_ideak"]
+[ext_resource type="Texture2D" uid="uid://x7ljrci4j6kl" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Gamemaker/sprites/base_idle_strip9/layers/02d5373d-2ed5-400d-bddc-4c14d48a42e0/2d37d6c0-b98c-4f13-9a51-372a1ec93b2d.png" id="2_mi3m7"]
+[ext_resource type="Texture2D" uid="uid://wm6cr02basws" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/UI/indicator.png" id="3_xwdbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ideak"]
 size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxcha"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwdbm"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_a7b3w"]
+resource_name = "show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mi3m7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xwdbm"]
+resource_name = "hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q24ip"]
+_data = {
+&"RESET": SubResource("Animation_mi3m7"),
+&"hide": SubResource("Animation_xwdbm"),
+&"show": SubResource("Animation_a7b3w")
+}
+
 [node name="NPC" type="StaticBody2D"]
+z_index = 10
 collision_layer = 32
 script = ExtResource("1_ideak")
 
-[node name="Sprite2D" type="ColorRect" parent="."]
-offset_right = 16.0
-offset_bottom = 16.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, 8)
+texture = ExtResource("2_mi3m7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)
@@ -26,3 +95,47 @@ position = Vector2(8, 8)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_xxcha")
 debug_color = Color(0, 0.63752, 0.3951046, 0.41960785)
+
+[node name="DialogueBubble" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -60.0
+offset_top = -60.0
+offset_right = -20.0
+offset_bottom = -20.0
+scale = Vector2(1.309771, 0.63159645)
+
+[node name="Panel" type="Panel" parent="DialogueBubble"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xwdbm")
+
+[node name="DialogueText" type="Label" parent="DialogueBubble/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueBubble"]
+libraries = {
+&"": SubResource("AnimationLibrary_q24ip")
+}
+
+[node name="ActiveIndicator" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(8, -5)
+texture = ExtResource("3_xwdbm")
