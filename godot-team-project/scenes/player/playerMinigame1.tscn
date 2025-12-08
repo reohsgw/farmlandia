@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dch04tfpvxu8d"]
+
+[ext_resource type="PackedScene" uid="uid://b2yxudnqivv5x" path="res://scenes/player/Player.tscn" id="1_1ggvh"]
+
+[node name="Player" instance=ExtResource("1_1ggvh")]
+
+[node name="Camera2D" parent="." index="3"]
+zoom = Vector2(1, 1)
+limit_left = -480
+limit_top = -384
+limit_right = 1168
+limit_bottom = 656
