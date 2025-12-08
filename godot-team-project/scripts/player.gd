@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 @export var speed: float = 200.0
 
+var last_direction: Vector2 = Vector2.DOWN
+
 var can_interact: bool = false
 var nearby_npc: Node = null
 
@@ -13,35 +15,55 @@ func _ready() -> void:
 	add_to_group("player")
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# Get input direction
-	var input_direction := Input.get_vector("left", "right", "up", "down")
+	var direction = Input.get_vector("left", "right", "up", "down")
 	
-	# Set velocity
-	velocity = input_direction * speed
+	# Update animation based on direction
+	update_animation(direction)
 	
-	# Move the character
+	# Movement
+	if direction:
+		velocity = direction * speed
+		last_direction = direction  # Remember last direction
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, speed)
+	
 	move_and_slide()
+
+func update_animation(direction: Vector2) -> void:
+	if not has_node("AnimatedSprite2D"):
+		return
 	
-	# Update animation based on movement (you can expand this)
-	update_animation(input_direction)
+	var anim_sprite = $AnimatedSprite2D
+	
+	if direction.length() > 0:
+		# Moving
+		if abs(direction.x) > abs(direction.y):
+			# Moving horizontally
+			anim_sprite.play("walk_left")  # Always play walk_right
+			
+			if direction.x > 0:
+				anim_sprite.flip_h = true  # Moving right, normal
+			else:
+				anim_sprite.flip_h = false   # Moving left, flip it!
+		else:
+			# Moving vertically
+			anim_sprite.flip_h = false  # Reset flip for up/down
+			
+			if direction.y > 0:
+				anim_sprite.play("walk_down")
+			else:
+				anim_sprite.play("walk_up")
+	else:
+		# Idle
+		anim_sprite.stop()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Check for interaction input (Space or Enter)
 	if event.is_action_pressed("accept") and can_interact and nearby_npc:
 		interact_with_npc()
-
-
-func update_animation(direction: Vector2) -> void:
-	# Placeholder for animation logic
-	# You can add AnimatedSprite2D or AnimationPlayer here
-	if direction.length() > 0:
-		# Moving
-		pass
-	else:
-		# Idle
-		pass
 
 
 func interact_with_npc() -> void:
