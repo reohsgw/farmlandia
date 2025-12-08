@@ -50,6 +50,7 @@ Shoot={
 2d_physics/layer_3="Wolf"
 2d_physics/layer_4="Sheep"
 2d_physics/layer_5="Fence"
+2d_physics/layer_6="Mole"
 
 [rendering]
 
