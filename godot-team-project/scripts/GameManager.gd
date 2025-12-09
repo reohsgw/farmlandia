@@ -7,6 +7,8 @@ var minigames_completed: Array = [false, false, false]
 var current_npc_index: int = 0
 var game_won: bool = false
 
+var total_time_played: float = 0.0
+
 # Scene paths
 const FARM_HUB = "res://scenes/main/FarmHub.tscn"
 const MINIGAME_1 = "res://scenes/minigames/Minigame1.tscn"
@@ -74,3 +76,9 @@ func reset_game() -> void:
 	current_npc_index = 0
 	game_won = false
 	print("Game reset")
+	
+func _process(delta: float) -> void:
+	# Count time in game, not in menu
+	var current_scene = get_tree().current_scene
+	if current_scene and current_scene.name != "MainMenu":
+		total_time_played += delta

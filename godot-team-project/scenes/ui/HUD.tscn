@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceqr1jopli54w"]
+
+[ext_resource type="Script" uid="uid://dj8ybyfsyl8nd" path="res://scripts/hud.gd" id="1_kw0id"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atyv1"]
+bg_color = Color(0, 0, 0, 0.5)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_kw0id")
+
+[node name="TopPanel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_atyv1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="ProgressLabel" type="Label" parent="TopPanel/HBoxContainer"]
+layout_mode = 2
+text = "Progress: 0/3"
+vertical_alignment = 1
+
+[node name="ObjectiveLabel" type="Label" parent="TopPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Objective: Talk to Farmer Bob"
+vertical_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="TopPanel/HBoxContainer"]
+layout_mode = 2
+text = "Time played: 0"
+vertical_alignment = 1
