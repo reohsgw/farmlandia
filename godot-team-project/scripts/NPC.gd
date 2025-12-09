@@ -11,6 +11,7 @@ var is_completed: bool = false
 
 func _ready() -> void:
 	add_to_group("npcs")
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	update_npc_state()
 
 func _process(_delta: float) -> void:

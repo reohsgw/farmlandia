@@ -9,10 +9,8 @@ var minigame2_check: CheckBox
 var minigame3_check: CheckBox
 
 func _ready() -> void:
-	# Start hidden
 	visible = false
 	
-	# Get all references safely
 	pause_panel = $PausePanel if has_node("PausePanel") else null
 	settings_panel = $SettingsPanel if has_node("SettingsPanel") else null
 	volume_slider = $SettingsPanel/VBoxContainer/VolumeSlider if has_node("SettingsPanel/VBoxContainer/VolumeSlider") else null
@@ -20,18 +18,13 @@ func _ready() -> void:
 	minigame2_check = $SettingsPanel/VBoxContainer/Minigame2Check if has_node("SettingsPanel/VBoxContainer/Minigame2Check") else null
 	minigame3_check = $SettingsPanel/VBoxContainer/Minigame3Check if has_node("SettingsPanel/VBoxContainer/Minigame3Check") else null
 	
-	# Connect buttons
 	connect_buttons()
-	
-	# Load volume
 	load_volume()
 	
-	# Hide settings panel
 	if settings_panel:
 		settings_panel.visible = false
 
 func connect_buttons() -> void:
-	# Pause panel buttons
 	if has_node("PausePanel/VBoxContainer/ResumeButton"):
 		$PausePanel/VBoxContainer/ResumeButton.pressed.connect(_on_resume_pressed)
 	
@@ -47,18 +40,15 @@ func connect_buttons() -> void:
 	if has_node("PausePanel/VBoxContainer/ExitButton"):
 		$PausePanel/VBoxContainer/ExitButton.pressed.connect(_on_exit_pressed)
 	
-	# Volume slider
 	if volume_slider:
 		volume_slider.value_changed.connect(_on_volume_changed)
 	
-	# Settings panel buttons
 	if has_node("SettingsPanel/VBoxContainer/BackButton"):
 		$SettingsPanel/VBoxContainer/BackButton.pressed.connect(_on_settings_back)
 	
 	if has_node("SettingsPanel/VBoxContainer/ResetProgressButton"):
 		$SettingsPanel/VBoxContainer/ResetProgressButton.pressed.connect(_on_reset_progress)
 	
-	# Checkboxes
 	if minigame1_check:
 		minigame1_check.toggled.connect(_on_minigame1_toggled)
 	if minigame2_check:
@@ -76,6 +66,7 @@ func toggle_pause() -> void:
 	
 	if visible:
 		update_checkboxes()
+		refresh_npcs()
 		if pause_panel:
 			pause_panel.visible = true
 		if settings_panel:
@@ -91,6 +82,26 @@ func update_checkboxes() -> void:
 		minigame2_check.button_pressed = GameManager.minigames_completed[1]
 	if minigame3_check:
 		minigame3_check.button_pressed = GameManager.minigames_completed[2]
+
+func refresh_npcs() -> void:
+	var npcs = get_tree().get_nodes_in_group("npcs")
+	for npc in npcs:
+		if npc.has_method("update_npc_state"):
+			npc.update_npc_state()
+
+func recalculate_npc_index() -> void:
+	# Find the first incomplete minigame (NPCs must be done in order)
+	for i in range(GameManager.minigames_completed.size()):
+		if not GameManager.minigames_completed[i]:
+			# Found first incomplete - this is the active NPC
+			GameManager.current_npc_index = i
+			print("Minigames: ", GameManager.minigames_completed)
+			print("First incomplete: NPC ", i)
+			return
+	
+	# All minigames completed - go to final NPC (Mayor)
+	GameManager.current_npc_index = 3
+	print("All minigames complete! Go to Mayor (NPC 3)")
 
 func _on_resume_pressed() -> void:
 	toggle_pause()
@@ -134,18 +145,19 @@ func _on_settings_back() -> void:
 func _on_reset_progress() -> void:
 	GameManager.reset_game()
 	update_checkboxes()
+	refresh_npcs()
 
 func _on_minigame1_toggled(toggled_on: bool) -> void:
 	GameManager.minigames_completed[0] = toggled_on
-	if toggled_on and GameManager.current_npc_index == 0:
-		GameManager.current_npc_index = 1
+	recalculate_npc_index()
+	refresh_npcs()
 
 func _on_minigame2_toggled(toggled_on: bool) -> void:
 	GameManager.minigames_completed[1] = toggled_on
-	if toggled_on and GameManager.current_npc_index == 1:
-		GameManager.current_npc_index = 2
+	recalculate_npc_index()
+	refresh_npcs()
 
 func _on_minigame3_toggled(toggled_on: bool) -> void:
 	GameManager.minigames_completed[2] = toggled_on
-	if toggled_on and GameManager.current_npc_index == 2:
-		GameManager.current_npc_index = 3
+	recalculate_npc_index()
+	refresh_npcs()
