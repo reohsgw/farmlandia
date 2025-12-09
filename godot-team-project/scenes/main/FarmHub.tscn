@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://pxk3la5o0t1q"]
+[gd_scene load_steps=17 format=4 uid="uid://pxk3la5o0t1q"]
 
 [ext_resource type="Texture2D" uid="uid://dueoyk5kh4flc" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="1_egye5"]
 [ext_resource type="PackedScene" uid="uid://b2yxudnqivv5x" path="res://scenes/player/Player.tscn" id="2_i48el"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dqbvnveaf58mm" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Gamemaker/sprites/shorthair_idle_strip9/3a96560e-69a6-4364-a9cc-2c9238574d10.png" id="4_m6pxw"]
 [ext_resource type="Texture2D" uid="uid://cpa2j4fp3wwoa" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Gamemaker/sprites/spikeyhair_idle_strip9/7ab60a58-9ff1-41da-90c6-87e27dd38497.png" id="5_isnj7"]
 [ext_resource type="PackedScene" uid="uid://ceqr1jopli54w" path="res://scenes/ui/HUD.tscn" id="7_isnj7"]
+[ext_resource type="AudioStream" uid="uid://bhjlf1kb8i0s6" path="res://music/farm_music.wav" id="8_8vyvs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ecxfu"]
 texture = ExtResource("1_egye5")
@@ -6806,6 +6807,11 @@ tile_map_data = PackedByteArray("AADt//n/AAACAAEAAADt//r/AAABAAEAAADt//v/AAACAAE
 tile_set = SubResource("TileSet_isnj7")
 
 [node name="HUD" parent="." instance=ExtResource("7_isnj7")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8vyvs")
+volume_db = -15.0
+autoplay = true
 
 [editable path="YSortLayer/Player"]
 [editable path="YSortLayer/NPC"]
