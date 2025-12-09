@@ -1,4 +1,4 @@
-﻿*!!!!**!*!*!**!*!*!*!*!*!*!*!*!!!!!
+*!!!!**!*!*!**!*!*!*!*!*!*!*!*!!!!!
 
 tinypixel is a font by videodante
 http://videodante.itch.io

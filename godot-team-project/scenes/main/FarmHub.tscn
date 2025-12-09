@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://pxk3la5o0t1q"]
+[gd_scene load_steps=19 format=4 uid="uid://pxk3la5o0t1q"]
 
 [ext_resource type="Texture2D" uid="uid://dueoyk5kh4flc" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="1_egye5"]
+[ext_resource type="Script" uid="uid://b5mrk0wvg2ih7" path="res://scripts/farm_hub.gd" id="1_gqmv1"]
 [ext_resource type="PackedScene" uid="uid://b2yxudnqivv5x" path="res://scenes/player/Player.tscn" id="2_i48el"]
 [ext_resource type="PackedScene" uid="uid://do8vqrvwx468r" path="res://scenes/npc/NPC.tscn" id="3_p4uke"]
 [ext_resource type="Texture2D" uid="uid://dkn13oagcxh0g" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Gamemaker/sprites/base_idle_strip9/layers/02d5373d-2ed5-400d-bddc-4c14d48a42e0/0a2b5aba-8050-4cd1-afe8-1c1d56a9c0b0.png" id="3_tbyij"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cpa2j4fp3wwoa" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Gamemaker/sprites/spikeyhair_idle_strip9/7ab60a58-9ff1-41da-90c6-87e27dd38497.png" id="5_isnj7"]
 [ext_resource type="PackedScene" uid="uid://ceqr1jopli54w" path="res://scenes/ui/HUD.tscn" id="7_isnj7"]
 [ext_resource type="AudioStream" uid="uid://bhjlf1kb8i0s6" path="res://music/farm_music.wav" id="8_8vyvs"]
+[ext_resource type="PackedScene" uid="uid://rr8iqx5ga46o" path="res://scenes/ui/PauseMenu.tscn" id="9_ck7oc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ecxfu"]
 texture = ExtResource("1_egye5")
@@ -6729,6 +6731,7 @@ texture = ExtResource("1_egye5")
 sources/0 = SubResource("TileSetAtlasSource_m6pxw")
 
 [node name="FarmHub" type="Node2D"]
+script = ExtResource("1_gqmv1")
 
 [node name="YSortLayer" type="Node2D" parent="."]
 z_index = 5
@@ -6747,15 +6750,15 @@ limit_bottom = 320
 
 [node name="NPC" parent="YSortLayer" instance=ExtResource("3_p4uke")]
 position = Vector2(31, 155)
-npc_name = "Farmer Bob"
-active_dialogue = "Can you help me with these vegetables?"
+npc_name = "Farmer Leevi"
+active_dialogue = "Can you help me with these vegetables"
 
 [node name="NPC2" parent="YSortLayer" instance=ExtResource("3_p4uke")]
 z_index = 7
 position = Vector2(255, 167)
 npc_index = 1
-npc_name = "Farmer Jane"
-inactive_dialogue = "Come back after helping Bob first!"
+npc_name = "Farmer Lempi"
+inactive_dialogue = "Come back after helping Leevi first!"
 active_dialogue = "Can you help me with these moles?"
 
 [node name="0a2b5Aba80504Cd1Afe81c1d56a9c0b0" type="Sprite2D" parent="YSortLayer/NPC2"]
@@ -6766,9 +6769,9 @@ texture = ExtResource("3_tbyij")
 [node name="NPC3" parent="YSortLayer" instance=ExtResource("3_p4uke")]
 position = Vector2(32, 12)
 npc_index = 2
-npc_name = "Farmer Joe"
-inactive_dialogue = "Come back after helping Jane first!"
-active_dialogue = "Help me protect my sheep!"
+npc_name = "Farmer Otto"
+inactive_dialogue = "Come back after helping Lempi first!"
+active_dialogue = "Can you help me protect my sheeps?"
 
 [node name="3a96560e69a64364A9Cc2c9238574d10" type="Sprite2D" parent="YSortLayer/NPC3"]
 z_index = 10
@@ -6779,7 +6782,8 @@ texture = ExtResource("4_m6pxw")
 position = Vector2(191, 13)
 npc_index = 3
 npc_name = "Mayor"
-active_dialogue = "You've helped everyone! Thank you!"
+active_dialogue = "You have helped everyone on the farm!"
+completed_dialogue = "Thank you for your help!"
 
 [node name="7Ab60a589Ff141Da90c687e27Dd38497" type="Sprite2D" parent="YSortLayer/NPC4"]
 position = Vector2(7, 6)
@@ -6812,6 +6816,9 @@ tile_set = SubResource("TileSet_isnj7")
 stream = ExtResource("8_8vyvs")
 volume_db = -15.0
 autoplay = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_ck7oc")]
+process_mode = 3
 
 [editable path="YSortLayer/Player"]
 [editable path="YSortLayer/NPC"]
