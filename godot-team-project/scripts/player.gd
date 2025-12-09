@@ -3,7 +3,7 @@ extends CharacterBody2D
 # Top-down player controller with NPC interaction
 
 @export var speed: float = 200.0
-
+var normal_speed: float 
 var last_direction: Vector2 = Vector2.DOWN
 
 var can_interact: bool = false
@@ -17,9 +17,16 @@ var whiteradishes_collected := 0
 signal pumpkin_collected(new_value)
 var pumpkins_collected := 0
 
+@onready var slow_timer: Timer = $SlowTimer
+@onready var blink_timer: Timer = $BlinkTimer
+@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 func _ready() -> void:
 	# Add the player to an "interaction" group for easy identification
 	add_to_group("player")
+	if speed <= 0.0:
+		speed = 200.0   # fallback if Inspector has 0
+	normal_speed = speed
 
 
 func _physics_process(delta: float) -> void:
@@ -32,10 +39,10 @@ func _physics_process(delta: float) -> void:
 	# Movement
 	if direction:
 		velocity = direction * speed
-		last_direction = direction  # Remember last direction
+		last_direction = direction
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, speed)
-	
+		
 	move_and_slide()
 
 func update_animation(direction: Vector2) -> void:
@@ -108,3 +115,19 @@ func add_pumpkin(amount):
 	pumpkins_collected += amount
 	print("pumpkin collected! Total =", pumpkins_collected)
 	pumpkin_collected.emit(pumpkins_collected)
+	
+func apply_slow(duration: float = 5.0, slow_speed: float = 80.0) -> void:
+	speed = slow_speed
+	slow_timer.start(duration)
+	blink_timer.start()
+
+func _on_slow_timer_timeout() -> void:
+	print("Timer timeout! Reset speed to:", normal_speed)
+	speed = normal_speed
+	blink_timer.stop()    
+	if anim_sprite:
+		anim_sprite.visible = true 
+
+func _on_blink_timer_timeout() -> void:
+	if anim_sprite:
+		anim_sprite.visible = not anim_sprite.visible

@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://cslu7fqc1givr"]
+
+[ext_resource type="Script" uid="uid://c4d8mp0tkrc77" path="res://scenes/minigames/minigame1/mushroom.gd" id="1_krdi8"]
+[ext_resource type="Texture2D" uid="uid://ce1fdb6lboe18" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Plants/spr_deco_mushroom_red_01_strip4.png" id="2_28xx8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2rcb"]
+atlas = ExtResource("2_28xx8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q84a"]
+atlas = ExtResource("2_28xx8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lqry"]
+atlas = ExtResource("2_28xx8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7wkk"]
+atlas = ExtResource("2_28xx8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c54bq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2rcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3q84a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lqry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7wkk")
+}],
+"loop": true,
+"name": &"mushroom",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ast08"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_58wb5"]
+radius = 6.0
+
+[node name="Mushroom" type="Area2D"]
+script = ExtResource("1_krdi8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(135, 54)
+sprite_frames = SubResource("SpriteFrames_c54bq")
+animation = &"mushroom"
+frame_progress = 0.11356847
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(137, 54)
+shape = SubResource("CircleShape2D_ast08")
+
+[node name="hit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit"]
+position = Vector2(137, 54)
+shape = SubResource("CircleShape2D_58wb5")
