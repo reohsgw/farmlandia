@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3yacoh6jlaw1"]
+
+[ext_resource type="Script" uid="uid://c6wr7fqojyru8" path="res://scenes/minigames/minigame1/carrot.gd" id="1_hb50t"]
+[ext_resource type="Texture2D" uid="uid://d1ij7rh8k0qp1" path="res://tiles/minigame/untitled folder/carrot_01.png" id="2_glbwj"]
+[ext_resource type="Texture2D" uid="uid://c7jmiaijxymuv" path="res://tiles/minigame/untitled folder/carrot_02.png" id="3_4v44a"]
+[ext_resource type="Texture2D" uid="uid://dlrh0co5qsvdy" path="res://tiles/minigame/untitled folder/carrot_03.png" id="4_8gs7d"]
+[ext_resource type="Texture2D" uid="uid://b2d5hkpyvm56s" path="res://tiles/minigame/untitled folder/carrot_04.png" id="5_k4ryc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6o1q8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_glbwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4v44a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8gs7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k4ryc")
+}],
+"loop": true,
+"name": &"carrot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6ptu"]
+radius = 4.0
+
+[node name="carrot" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_hb50t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6o1q8")
+animation = &"carrot"
+frame_progress = 0.08175266
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_p6ptu")

@@ -9,6 +9,13 @@ var last_direction: Vector2 = Vector2.DOWN
 var can_interact: bool = false
 var nearby_npc: Node = null
 
+#minigame1
+signal carrot_collected(new_value)
+var carrots_collected := 0
+signal whiteradish_collected(new_value)
+var whiteradishes_collected := 0
+signal pumpkin_collected(new_value)
+var pumpkins_collected := 0
 
 func _ready() -> void:
 	# Add the player to an "interaction" group for easy identification
@@ -85,3 +92,19 @@ func _on_interaction_area_exited(area: Area2D) -> void:
 		can_interact = false
 		nearby_npc = null
 		print("Left NPC area")
+
+#minigame
+func add_carrot(amount):
+	carrots_collected += amount
+	print("Carrot collected! Total =", carrots_collected)
+	carrot_collected.emit(carrots_collected)
+	
+func add_whiteradish(amount):
+	whiteradishes_collected += amount
+	print("white radish collected! Total =", whiteradishes_collected)
+	whiteradish_collected.emit(whiteradishes_collected)
+
+func add_pumpkin(amount):
+	pumpkins_collected += amount
+	print("pumpkin collected! Total =", pumpkins_collected)
+	pumpkin_collected.emit(pumpkins_collected)
