@@ -30,5 +30,3 @@ func complete_minigame() -> void:
 	is_completed = true
 	print("Minigame 1 completed!")
 	GameManager.complete_minigame(minigame_index)
-	await get_tree().create_timer(1.0).timeout
-	GameManager.return_to_hub()

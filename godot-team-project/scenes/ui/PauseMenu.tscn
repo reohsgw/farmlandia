@@ -1,0 +1,154 @@
+[gd_scene load_steps=2 format=3 uid="uid://rr8iqx5ga46o"]
+
+[ext_resource type="Script" uid="uid://b6se64f7uftq4" path="res://scripts/pause_menu.gd" id="1_vb6pq"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_vb6pq")
+
+[node name="Overlay" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(400, 500)
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="PausePanel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -752.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PausePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="PausePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="PausePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="VolumeLabel" type="Label" parent="PausePanel/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="PausePanel/VBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+value = 100.0
+
+[node name="Control2" type="Control" parent="PausePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="PausePanel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="PausePanel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Restart"
+
+[node name="SettingsButton" type="Button" parent="PausePanel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Settings"
+
+[node name="MainMenuButton" type="Button" parent="PausePanel/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="ExitButton" type="Button" parent="PausePanel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Exit"
+
+[node name="SettingsPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 53.0
+offset_right = -754.0
+offset_bottom = -195.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="SettingsTitle" type="Label" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="SettingsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Minigame1" type="Label" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Minigame 1 Complete:"
+horizontal_alignment = 1
+
+[node name="Minigame1Check" type="CheckBox" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Complete"
+alignment = 1
+
+[node name="Minigame2" type="Label" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Minigame 2 Complete:"
+horizontal_alignment = 1
+
+[node name="Minigame2Check" type="CheckBox" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Complete"
+alignment = 1
+
+[node name="Minigame3" type="Label" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Minigame 3 Complete:"
+horizontal_alignment = 1
+
+[node name="Minigame3Check" type="CheckBox" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Complete"
+alignment = 1
+
+[node name="Control2" type="Control" parent="SettingsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ResetProgressButton" type="Button" parent="SettingsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "Reset All Progress"
+
+[node name="Control3" type="Control" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="SettingsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Back"

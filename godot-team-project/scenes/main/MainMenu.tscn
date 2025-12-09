@@ -1,75 +1,106 @@
-[gd_scene format=3 uid="uid://cdewrwge587tw"]
+[gd_scene load_steps=5 format=3 uid="uid://ijiyaf20tpkt"]
+
+[ext_resource type="Script" uid="uid://dmx0dj77xgapf" path="res://scripts/main_menu.gd" id="1_qi05h"]
+[ext_resource type="FontFile" uid="uid://dqc8qu1fmbut2" path="res://fonts/tinypixel/tinypixel.otf" id="2_uort0"]
+[ext_resource type="Texture2D" uid="uid://yomu5iak02mi" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Sunnyside_World_ExampleScene.png" id="2_v3gjy"]
+[ext_resource type="AudioStream" uid="uid://ct3cbp203sqxo" path="res://music/menu_music.ogg" id="4_jen06"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 269.0
-offset_bottom = 197.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qi05h")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.1705713, 1.6939205)
-color = Color(0.48677072, 0.6651851, 0.48452926, 1)
+texture = ExtResource("2_v3gjy")
 
-[node name="GameTitle" type="Label" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 84.0
-offset_top = -9.0
-offset_right = 259.0
-offset_bottom = 36.0
-scale = Vector2(0.784578, 1.0558934)
-theme_override_font_sizes/font_size = 32
+offset_left = 436.99997
+offset_top = 34.0
+offset_right = 476.99997
+offset_bottom = 74.0
+scale = Vector2(8.663051, 1.9145947)
+color = Color(0, 0, 0, 0.5)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 45.0
+offset_right = 199.0
+offset_bottom = 103.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_uort0")
+theme_override_font_sizes/font_size = 50
 text = "Farmlandia"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MenuButtons" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 74.0
-offset_right = 230.0
-offset_bottom = 274.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -123.0
+offset_right = 70.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3759365, 1.4761192)
 theme_override_constants/separation = 10
 
 [node name="StartButton" type="Button" parent="MenuButtons"]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uort0")
 text = "Start Game"
 
 [node name="StoryButton" type="Button" parent="MenuButtons"]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uort0")
 text = "Story"
 
 [node name="OptionsButton" type="Button" parent="MenuButtons"]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uort0")
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="MenuButtons"]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
-text = "Credits
-"
+theme_override_fonts/font = ExtResource("2_uort0")
+text = "Credits"
 
 [node name="ExitButton" type="Button" parent="MenuButtons"]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
-text = "Exit
-"
+theme_override_fonts/font = ExtResource("2_uort0")
+text = "Exit"
 
 [node name="StoryPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 0
-offset_left = -1.0
-offset_top = 37.0
-offset_right = 399.0
-offset_bottom = 387.0
-scale = Vector2(0.79213274, 0.8474206)
+offset_left = 394.0
+offset_top = 201.0
+offset_right = 794.0
+offset_bottom = 551.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StoryPanel"]
 layout_mode = 1
@@ -80,7 +111,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="StoryPanel/VBoxContainer"]
+[node name="StoryTitle" type="Label" parent="StoryPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Game Story"
@@ -89,18 +120,127 @@ horizontal_alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="StoryPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "\"Welcome to Sunny Valley Farm!
+text = "\"Welcome to Farmlandia
 
 The farm has fallen into disrepair and the farmers need your help. Three farmers have important tasks that need to be completed:
 
-- Farmer Bob needs help collecting carrots from the field
-- Farmer Jane needs assistance solving a challenging puzzle
-- Farmer Joe needs someone brave to help during the storm
+- Farmer Bob needs help collecting vegetables from the field
+- Farmer Jane needs assistance whacking the moles stealing the vegetables
+- Farmer Joe needs someone brave to help protect his sheep from the wolves
 
-Complete all three tasks to save the farm and become the hero of Sunny Valley!
+Complete all three tasks to save the farm and become the hero of Farmlandia
 
 Can you help save the farm?\""
 
-[node name="CloseButton" type="Button" parent="StoryPanel/VBoxContainer"]
+[node name="StoryCloseButton" type="Button" parent="StoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 text = "Close"
+
+[node name="OptionsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 200.0
+offset_right = 800.0
+offset_bottom = 550.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsTitle" type="Label" parent="OptionsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Game Options"
+horizontal_alignment = 1
+
+[node name="MasterVolume" type="Label" parent="OptionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="OptionsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+value = 100.0
+
+[node name="ControlsTitle" type="Label" parent="OptionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+
+[node name="ControlsInfo" type="RichTextLabel" parent="OptionsPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Movement:
+- Arrow Keys or WASD - Move player
+- Up/Down/Left/Right
+
+Interaction:
+- Space or Enter - Talk to NPCs
+- ESC - Pause game (if available)
+
+Objective:
+Talk to each NPC in order and complete their minigame!"
+
+[node name="OptionsCloseButton" type="Button" parent="OptionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="CreditsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 404.0
+offset_top = 199.0
+offset_right = 804.0
+offset_bottom = 549.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsTitle" type="Label" parent="CreditsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="TeamName" type="Label" parent="CreditsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Team 3:"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CreditsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TeamMembers" type="Label" parent="CreditsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Team Members:"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "- [Member 1 Name] - [Role (e.g., Player & NPCs)]
+- [Member 2 Name] - [Role (e.g., Farm Hub)]
+- [Member 3 Name] - [Role (e.g., Minigames)]
+- [Member 4 Name] - [Role (e.g., UI & Audio)]
+"
+horizontal_alignment = 1
+
+[node name="CreditsCloseButton" type="Button" parent="CreditsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jen06")
+autoplay = true

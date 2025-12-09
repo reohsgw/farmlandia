@@ -14,7 +14,7 @@ func _ready() -> void:
 	update_npc_state()
 
 func _process(_delta: float) -> void:
-	# Show arrow indicator above active NPC
+	# Show arrow indicator for active NPC
 	if has_node("ActiveIndicator"):
 		$ActiveIndicator.visible = is_active and not is_completed
 
