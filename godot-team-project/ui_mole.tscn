@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://bft0bkf7ij7iw"]
+
+[ext_resource type="Texture2D" uid="uid://dxrwjrqpovocr" path="res://CharacterSprites/clockk.png" id="1_rvomy"]
+[ext_resource type="AudioStream" uid="uid://cnv2o5gohyl5o" path="res://321-go-8-bit-video-game-sound-version-1-145007.mp3" id="2_2pg0q"]
+
+[node name="UIMole" type="CanvasLayer"]
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 292.0
+offset_top = 46.0
+offset_right = 348.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 30
+text = "60 s"
+
+[node name="ClockIcon" type="TextureRect" parent="."]
+offset_left = 219.0
+offset_top = 43.0
+offset_right = 265.0
+offset_bottom = 92.0
+texture = ExtResource("1_rvomy")
+expand_mode = 1
+
+[node name="WinLabel" type="Label" parent="."]
+visible = false
+offset_left = 391.0
+offset_top = 259.0
+offset_right = 729.0
+offset_bottom = 358.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "YOU WIN!"
+
+[node name="LoseLabel" type="Label" parent="."]
+visible = false
+offset_left = 399.0
+offset_top = 256.0
+offset_right = 718.0
+offset_bottom = 358.0
+theme_override_colors/font_color = Color(1, 0, 0.17184411, 1)
+theme_override_font_sizes/font_size = 74
+text = "You Lose"
+
+[node name="GoalBar" type="ProgressBar" parent="."]
+offset_left = 461.0
+offset_top = 35.0
+offset_right = 1000.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.6, 0.3137255, 0.1254902, 1)
+theme_override_colors/font_outline_color = Color(0.6, 0.3137255, 0.1254902, 1)
+max_value = 200.0
+show_percentage = false
+
+[node name="BarText" type="Label" parent="GoalBar"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 12.0
+offset_right = 290.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 25
+
+[node name="GoalText" type="Label" parent="."]
+offset_left = 435.0
+offset_top = 361.0
+offset_right = 648.0
+offset_bottom = 406.0
+theme_override_font_sizes/font_size = 32
+
+[node name="WarningSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_2pg0q")
+volume_db = 6.27
