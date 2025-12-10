@@ -10,7 +10,7 @@ var total_time_played: float = 0.0
 # Minigame scenes
 var minigame_scenes: Array = [
 	"res://scenes/minigames/Minigame1.tscn",
-	"res://scenes/minigames/Minigame2.tscn",
+	"res://scenes/minigames/WhackAMole.tscn",
 	"res://scenes/minigames/Minigame3.tscn"
 ]
 
