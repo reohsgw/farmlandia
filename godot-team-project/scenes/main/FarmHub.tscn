@@ -6782,8 +6782,8 @@ texture = ExtResource("4_m6pxw")
 position = Vector2(191, 13)
 npc_index = 3
 npc_name = "Mayor"
-active_dialogue = "You have helped everyone on the farm!"
-completed_dialogue = "Thank you for your help!"
+active_dialogue = "Thank you for your help!"
+completed_dialogue = ""
 
 [node name="7Ab60a589Ff141Da90c687e27Dd38497" type="Sprite2D" parent="YSortLayer/NPC4"]
 position = Vector2(7, 6)

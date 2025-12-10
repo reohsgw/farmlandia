@@ -3,7 +3,6 @@ extends CanvasLayer
 # References
 var pause_panel: Panel
 var settings_panel: Panel
-var volume_slider: HSlider
 var minigame1_check: CheckBox
 var minigame2_check: CheckBox
 var minigame3_check: CheckBox
@@ -13,13 +12,11 @@ func _ready() -> void:
 	
 	pause_panel = $PausePanel if has_node("PausePanel") else null
 	settings_panel = $SettingsPanel if has_node("SettingsPanel") else null
-	volume_slider = $SettingsPanel/VBoxContainer/VolumeSlider if has_node("SettingsPanel/VBoxContainer/VolumeSlider") else null
 	minigame1_check = $SettingsPanel/VBoxContainer/Minigame1Check if has_node("SettingsPanel/VBoxContainer/Minigame1Check") else null
 	minigame2_check = $SettingsPanel/VBoxContainer/Minigame2Check if has_node("SettingsPanel/VBoxContainer/Minigame2Check") else null
 	minigame3_check = $SettingsPanel/VBoxContainer/Minigame3Check if has_node("SettingsPanel/VBoxContainer/Minigame3Check") else null
 	
 	connect_buttons()
-	load_volume()
 	
 	if settings_panel:
 		settings_panel.visible = false
@@ -39,9 +36,6 @@ func connect_buttons() -> void:
 	
 	if has_node("PausePanel/VBoxContainer/ExitButton"):
 		$PausePanel/VBoxContainer/ExitButton.pressed.connect(_on_exit_pressed)
-	
-	if volume_slider:
-		volume_slider.value_changed.connect(_on_volume_changed)
 	
 	if has_node("SettingsPanel/VBoxContainer/BackButton"):
 		$SettingsPanel/VBoxContainer/BackButton.pressed.connect(_on_settings_back)
@@ -124,17 +118,6 @@ func _on_main_menu_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
-
-func _on_volume_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(0, linear_to_db(value / 100.0))
-
-func load_volume() -> void:
-	if not volume_slider:
-		return
-	
-	var current_db = AudioServer.get_bus_volume_db(0)
-	var current_volume = db_to_linear(current_db) * 100.0
-	volume_slider.value = current_volume
 
 func _on_settings_back() -> void:
 	if pause_panel:

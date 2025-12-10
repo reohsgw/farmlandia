@@ -81,4 +81,7 @@ func start_minigame() -> void:
 		GameManager.complete_game()
 		show_dialogue("Congratulations! You've helped everyone on the farm!")
 		await get_tree().create_timer(2.0).timeout
-		get_tree().quit()
+		
+		# Reset game for next playthrough
+		GameManager.reset_game()
+		get_tree().change_scene_to_file("res://scenes/main/MainMenu.tscn")
