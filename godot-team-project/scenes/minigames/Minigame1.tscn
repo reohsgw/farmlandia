@@ -5189,6 +5189,7 @@ position = Vector2(201, 151)
 position = Vector2(65, 96)
 
 [node name="WhiteRadish3" parent="." instance=ExtResource("5_mqphp")]
+visible = false
 position = Vector2(-48, 191)
 
 [node name="WhiteRadish4" parent="." instance=ExtResource("5_mqphp")]

@@ -103,7 +103,7 @@ func _on_interaction_area_exited(area: Area2D) -> void:
 		nearby_npc = null
 		print("Left NPC area")
 
-#minigame
+#minigame(HASEGAWA REO) 
 func add_carrot(amount):
 	carrots_collected += amount
 	print("Carrot collected! Total =", carrots_collected)
