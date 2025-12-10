@@ -66,6 +66,5 @@ position = Vector2(137, 54)
 shape = SubResource("CircleShape2D_58wb5")
 
 [node name="PoisonSFX" type="AudioStreamPlayer2D" parent="."]
-process_mode = 2
 stream = ExtResource("3_28xx8")
-volume_db = 2.053
+volume_db = 0.55

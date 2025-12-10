@@ -23,6 +23,7 @@ const MAX_TIME: float = 60.0
 @onready var win_sfx: AudioStreamPlayer2D = $WinSFX
 @onready var bgm: AudioStreamPlayer2D = $bgm
 
+
 func _ready() -> void:
 	print("Minigame 1: Collect %d items!" % items_to_collect)
 	create_temp_complete_button()
