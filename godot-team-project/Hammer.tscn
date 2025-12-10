@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://di8nacr0pankr"]
+
+[ext_resource type="Script" uid="uid://dupatlx4pgg12" path="res://Hammer.gd" id="1_07ucf"]
+[ext_resource type="Texture2D" uid="uid://cwg83uxxocvt3" path="res://CharacterSprites/hammer_hit.png" id="1_aar75"]
+[ext_resource type="Texture2D" uid="uid://26u5t30pbv8f" path="res://CharacterSprites/hammer_normal.png" id="2_07ucf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nif7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aar75")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_07ucf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Hammer" type="Node2D"]
+script = ExtResource("1_07ucf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nif7i")
+animation = &"hit"
