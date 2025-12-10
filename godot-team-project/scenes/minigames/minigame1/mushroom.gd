@@ -3,9 +3,12 @@ extends Area2D
 @export var slow_factor: float = 0.4   
 @export var slow_duration: float = 5.0 
 
+@onready var poison_sfx: AudioStreamPlayer2D = $PoisonSFX
+
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	$AnimatedSprite2D.play("mushroom")
+	
 
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Player":

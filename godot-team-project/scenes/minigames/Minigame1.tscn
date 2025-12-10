@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://c67yhwslxxy5x"]
+[gd_scene load_steps=35 format=4 uid="uid://c67yhwslxxy5x"]
 
 [ext_resource type="Script" uid="uid://cghpqa25cmmqg" path="res://scripts/Minigame1.gd" id="1_qm5rk"]
 [ext_resource type="Texture2D" uid="uid://dueoyk5kh4flc" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_flmvd"]
@@ -10,8 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://bawrdytbdxdhs" path="res://tiles/minigame/untitled folder/carrot_05.png" id="8_efc4b"]
 [ext_resource type="Texture2D" uid="uid://fthmxmqomjwk" path="res://tiles/minigame/tile_0042.png" id="10_efc4b"]
 [ext_resource type="Texture2D" uid="uid://dkq6fycqd5ip1" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Characters/Human/WATERING/base_watering_strip5.png" id="10_p6ptu"]
-[ext_resource type="Script" uid="uid://b02dqqk3b8p68" path="res://scenes/minigames/farmer_np.gd" id="11_efc4b"]
+[ext_resource type="Texture2D" uid="uid://clovk2pubu0y3" path="res://scenes/minigames/minigame1/KakaoTalk_Photo_2025-12-10-11-28-25.png" id="11_k4tlm"]
+[ext_resource type="FontFile" uid="uid://hf8wfedw6sq0" path="res://scenes/ARCADECLASSIC.TTF" id="11_vyyhi"]
+[ext_resource type="Texture2D" uid="uid://xtb5whwiwt12" path="res://scenes/minigames/minigame1/lifebar_bg.png" id="12_6o1q8"]
+[ext_resource type="Texture2D" uid="uid://d1iouushjqe28" path="res://scenes/minigames/minigame1/lifebar_fill.png" id="13_vyyhi"]
+[ext_resource type="Script" uid="uid://dms5r0i2hydbi" path="res://scenes/minigames/npc.gd" id="15_e2rcb"]
 [ext_resource type="Texture2D" uid="uid://lwpb6kvbvgy7" path="res://tiles/minigame/untitled folder/pumpkin_04.png" id="16_u7wkk"]
+[ext_resource type="AudioStream" uid="uid://o1rqy5kgk5ht" path="res://scenes/minigames/minigame1/sfx/item-pickup-37089.mp3" id="17_3q84a"]
+[ext_resource type="AudioStream" uid="uid://vaqguy1pxi7b" path="res://scenes/minigames/minigame1/sfx/game-over-417465.mp3" id="18_2lqry"]
+[ext_resource type="AudioStream" uid="uid://dluwymbmcus6n" path="res://scenes/minigames/minigame1/sfx/cartoon-slide-whistle-down-3-176651.mp3" id="19_u7wkk"]
+[ext_resource type="AudioStream" uid="uid://bn367xtliadfy" path="res://scenes/minigames/minigame1/sfx/winner-game-sound-404167.mp3" id="20_c54bq"]
+[ext_resource type="AudioStream" uid="uid://dgwiurovhj3ri" path="res://scenes/minigames/minigame1/sfx/Monkeys-Spinning-Monkeys(chosic.com).mp3" id="21_ast08"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flmvd"]
 texture = ExtResource("2_flmvd")
@@ -4986,51 +4995,51 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_a2dyj")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k4tlm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q84a"]
 atlas = ExtResource("10_p6ptu")
 region = Rect2(0, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_efc4b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lqry"]
 atlas = ExtResource("10_p6ptu")
 region = Rect2(96, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6o1q8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7wkk"]
 atlas = ExtResource("10_p6ptu")
 region = Rect2(192, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vyyhi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c54bq"]
 atlas = ExtResource("10_p6ptu")
 region = Rect2(288, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hh6wg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ast08"]
 atlas = ExtResource("10_p6ptu")
 region = Rect2(384, 0, 96, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e2rcb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_58wb5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k4tlm")
+"texture": SubResource("AtlasTexture_3q84a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_efc4b")
+"texture": SubResource("AtlasTexture_2lqry")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6o1q8")
+"texture": SubResource("AtlasTexture_u7wkk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vyyhi")
+"texture": SubResource("AtlasTexture_c54bq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hh6wg")
+"texture": SubResource("AtlasTexture_ast08")
 }],
 "loop": true,
 "name": &"man",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3q84a"]
-radius = 13.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mh3o"]
+radius = 17.117243
 
 [node name="Minigame1" type="Node2D"]
 script = ExtResource("1_qm5rk")
@@ -5081,8 +5090,11 @@ position = Vector2(41, 5)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_right = 73.0
-offset_bottom = 138.0
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 123.5
+offset_bottom = 196.0
+scale = Vector2(2, 2)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -5197,23 +5209,6 @@ position = Vector2(31, 144)
 [node name="Mushroom5" parent="." instance=ExtResource("7_k4tlm")]
 position = Vector2(127, 0)
 
-[node name="FarmerNPC" type="CharacterBody2D" parent="."]
-position = Vector2(7, 1)
-script = ExtResource("11_efc4b")
-dialogue_label_path = NodePath("../CanvasLayer2/DialogueLabel")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="FarmerNPC"]
-position = Vector2(194, 286)
-sprite_frames = SubResource("SpriteFrames_e2rcb")
-animation = &"man"
-
-[node name="InteractionArea" type="Area2D" parent="FarmerNPC" groups=["interaction_area"]]
-position = Vector2(196, 286)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FarmerNPC/InteractionArea"]
-position = Vector2(-1, 0)
-shape = SubResource("CircleShape2D_3q84a")
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="DialogueLabel" type="Label" parent="CanvasLayer2"]
@@ -5221,6 +5216,91 @@ offset_left = 190.0
 offset_top = 16.0
 offset_right = 230.0
 offset_bottom = 39.0
+
+[node name="GameTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer3"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.5
+offset_top = -24.5
+offset_right = 109.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0.02745098, 1)
+theme_override_fonts/font = ExtResource("11_vyyhi")
+theme_override_font_sizes/font_size = 90
+text = "GAM E OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer3"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -545.0
+offset_top = 30.0
+offset_right = -31.0
+offset_bottom = 118.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_k4tlm")
+expand_mode = 2
+
+[node name="TimerBar" type="TextureProgressBar" parent="CanvasLayer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_under = ExtResource("12_6o1q8")
+texture_progress = ExtResource("13_vyyhi")
+
+[node name="NPC" type="Area2D" parent="."]
+script = ExtResource("15_e2rcb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
+position = Vector2(207, 286)
+sprite_frames = SubResource("SpriteFrames_58wb5")
+animation = &"man"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+position = Vector2(206, 286)
+shape = SubResource("CircleShape2D_7mh3o")
+
+[node name="CollectSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_3q84a")
+volume_db = -3.421
+
+[node name="GameOverSFX" type="AudioStreamPlayer2D" parent="."]
+process_mode = 2
+stream = ExtResource("18_2lqry")
+volume_db = 24.0
+
+[node name="PoisonSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_u7wkk")
+volume_db = 8.263
+
+[node name="WinSFX" type="AudioStreamPlayer2D" parent="."]
+process_mode = 2
+stream = ExtResource("20_c54bq")
+
+[node name="bgm" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("21_ast08")
+volume_db = 10.263
+autoplay = true
 
 [connection signal="timeout" from="Player/SlowTimer" to="Player" method="_on_slow_timer_timeout"]
 [connection signal="timeout" from="Player/BlinkTimer" to="Player" method="_on_blink_timer_timeout"]

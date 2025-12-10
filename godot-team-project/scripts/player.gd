@@ -17,6 +17,9 @@ var whiteradishes_collected := 0
 signal pumpkin_collected(new_value)
 var pumpkins_collected := 0
 
+signal player_won
+signal player_missing_items
+
 @onready var slow_timer: Timer = $SlowTimer
 @onready var blink_timer: Timer = $BlinkTimer
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -131,3 +134,9 @@ func _on_slow_timer_timeout() -> void:
 func _on_blink_timer_timeout() -> void:
 	if anim_sprite:
 		anim_sprite.visible = not anim_sprite.visible
+
+func check_win_condition():
+	if carrots_collected >= 7 and whiteradishes_collected >= 5 and pumpkins_collected >= 3:
+		emit_signal("player_won")
+	else:
+		emit_signal("player_missing_items")
