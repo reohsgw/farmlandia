@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c76yrmvph652x"]
+
+[ext_resource type="Script" uid="uid://m2dxoe7sl2k4" path="res://scenes/minigames/minigame1/white_radish.gd" id="1_2d3n6"]
+[ext_resource type="Texture2D" uid="uid://ero4qk4eutbb" path="res://tiles/minigame/tile_0043.png" id="2_2c7w4"]
+[ext_resource type="Texture2D" uid="uid://fthmxmqomjwk" path="res://tiles/minigame/tile_0042.png" id="3_gj041"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hh6wg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2c7w4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gj041")
+}],
+"loop": true,
+"name": &"whiteradish",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2rcb"]
+size = Vector2(12, 15)
+
+[node name="WhiteRadish" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_2d3n6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(120, 2)
+sprite_frames = SubResource("SpriteFrames_hh6wg")
+animation = &"whiteradish"
+frame_progress = 0.90455854
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(120, 4)
+shape = SubResource("RectangleShape2D_e2rcb")

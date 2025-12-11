@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpkujyspvninw"]
+
+[ext_resource type="Script" uid="uid://p0kvncfkyf6s" path="res://scenes/minigames/minigame1/pumpkin.gd" id="1_fx86h"]
+[ext_resource type="Texture2D" uid="uid://boi1eiq81hc3f" path="res://tiles/minigame/untitled folder/pumpkin_01.png" id="2_tdk7a"]
+[ext_resource type="Texture2D" uid="uid://bqtchi525v5xl" path="res://tiles/minigame/untitled folder/pumpkin_02.png" id="3_dyotp"]
+[ext_resource type="Texture2D" uid="uid://byrchq2cbglig" path="res://tiles/minigame/untitled folder/pumpkin_03.png" id="4_8ltpj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c54bq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tdk7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dyotp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8ltpj")
+}],
+"loop": true,
+"name": &"pumpkin",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u7wkk"]
+radius = 4.0
+
+[node name="pumpkin" type="Area2D"]
+script = ExtResource("1_fx86h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(88, 55)
+sprite_frames = SubResource("SpriteFrames_c54bq")
+animation = &"pumpkin"
+frame_progress = 0.5667601
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(89, 55)
+shape = SubResource("CircleShape2D_u7wkk")

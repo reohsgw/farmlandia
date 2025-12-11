@@ -71,6 +71,7 @@ accept={
 2d_physics/layer_4="Sheep"
 2d_physics/layer_5="Fence"
 2d_physics/layer_6="NPC"
+2d_physics/layer_7="Vegetable"
 
 [rendering]
 
