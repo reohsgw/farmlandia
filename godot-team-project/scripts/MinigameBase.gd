@@ -1,3 +1,4 @@
+# Tatu Nyberg
 extends Node2D
 
 @export var minigame_index: int = 0

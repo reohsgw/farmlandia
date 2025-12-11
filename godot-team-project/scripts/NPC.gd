@@ -1,3 +1,4 @@
+# Tatu Nyberg
 extends StaticBody2D
 
 @export var npc_index: int = 0

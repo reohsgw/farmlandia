@@ -1,3 +1,4 @@
+# Tatu Nyberg
 extends CharacterBody2D
 
 # Top-down player controller with NPC interaction

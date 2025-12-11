@@ -181,7 +181,8 @@ text = "Movement:
 
 Interaction:
 - Space or Enter - Talk to NPCs
-- ESC - Pause game (if available)
+- ESC - Pause game on main hub
+- Left Click - Whack Moles
 
 Objective:
 Talk to each NPC in order and complete their minigame!"
@@ -230,10 +231,10 @@ horizontal_alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="CreditsPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "- [Member 1 Name] - [Role (e.g., Player & NPCs)]
-- [Member 2 Name] - [Role (e.g., Farm Hub)]
-- [Member 3 Name] - [Role (e.g., Minigames)]
-- [Member 4 Name] - [Role (e.g., UI & Audio)]
+text = "- Reo Hasegawa - Minigame 1
+- Kurniati Yassirlya Amrina - Minigame 2
+- Mika Ruuhilahti - Minigame 3
+- Tatu Nyberg - MainHub, MainMenu, Player, Gamelogic
 "
 horizontal_alignment = 1
 
