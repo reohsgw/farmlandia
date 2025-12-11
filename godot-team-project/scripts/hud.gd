@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var timer_label = $TopPanel/HBoxContainer/TimerLabel
 
 func _ready() -> void:
-	update_hud()
+	update_hud() 
 
 func _process(_delta: float) -> void:
 	update_hud()
