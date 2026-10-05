@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl3otj40vnvf4"]
+
+[ext_resource type="Texture2D" uid="uid://dpcys2y4oygsy" path="res://scenes/minigames/Minigame3/Shotgun.png" id="1_81uwx"]
+[ext_resource type="Script" uid="uid://dh5ei453ogukb" path="res://scenes/minigames/Minigame3/gun.gd" id="1_rjw8f"]
+[ext_resource type="PackedScene" uid="uid://b1un2dn78muua" path="res://scenes/minigames/Minigame3/Bullet.tscn" id="3_r2sce"]
+[ext_resource type="AudioStream" uid="uid://c114aye6gm8r1" path="res://scenes/minigames/Minigame3/Shot.wav" id="4_xhcuo"]
+
+[node name="Gun" type="Node2D" groups=["Bullet"]]
+script = ExtResource("1_rjw8f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.7683716e-07, -1.4999986)
+scale = Vector2(0.272, 0.72222227)
+texture = ExtResource("1_81uwx")
+
+[node name="Bullet" parent="." instance=ExtResource("3_r2sce")]
+visible = false
+position = Vector2(33, -10)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xhcuo")

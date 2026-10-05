@@ -1,4 +1,5 @@
 #HASEGAWA REO
+#plays the mushroom animation, detect when player touches the mushroom, applies slow effect to the player, play poison sound effect, make mushroom disappear after touch and after the sound finishes. 
 extends Area2D
 
 @export var slow_factor: float = 0.4

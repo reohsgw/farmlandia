@@ -5285,7 +5285,6 @@ stream = ExtResource("17_3q84a")
 volume_db = -3.421
 
 [node name="GameOverSFX" type="AudioStreamPlayer2D" parent="."]
-process_mode = 2
 stream = ExtResource("18_2lqry")
 volume_db = 24.0
 
@@ -5294,7 +5293,6 @@ stream = ExtResource("19_u7wkk")
 volume_db = 8.263
 
 [node name="WinSFX" type="AudioStreamPlayer2D" parent="."]
-process_mode = 2
 stream = ExtResource("20_c54bq")
 
 [node name="bgm" type="AudioStreamPlayer2D" parent="."]

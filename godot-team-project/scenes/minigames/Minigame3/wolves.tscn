@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://dufbvv570nyov"]
+
+[ext_resource type="Script" uid="uid://bfs3xomyo8nc1" path="res://scenes/minigames/Minigame3/wolves.gd" id="1_mtchu"]
+[ext_resource type="Texture2D" uid="uid://oshm0fqjt07" path="res://scenes/minigames/Minigame3/WolfWalk.png" id="2_hfx5e"]
+[ext_resource type="AudioStream" uid="uid://c0tclyi1mpsok" path="res://scenes/minigames/Minigame3/Wolf.wav" id="3_hfx5e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liqak"]
+atlas = ExtResource("2_hfx5e")
+region = Rect2(0, 0, 62, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvksg"]
+atlas = ExtResource("2_hfx5e")
+region = Rect2(62, 0, 62, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdwl3"]
+atlas = ExtResource("2_hfx5e")
+region = Rect2(124, 0, 62, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgjkb"]
+atlas = ExtResource("2_hfx5e")
+region = Rect2(186, 0, 62, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wh0v"]
+atlas = ExtResource("2_hfx5e")
+region = Rect2(248, 0, 62, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_58ou0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liqak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvksg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdwl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgjkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wh0v")
+}],
+"loop": true,
+"name": &"WolfWalk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urm80"]
+radius = 36.0
+height = 72.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1w00u"]
+radius = 19.0
+height = 38.0
+
+[node name="Wolves" type="CharacterBody2D" groups=["wolves"]]
+collision_layer = 4
+collision_mask = 27
+motion_mode = 1
+script = ExtResource("1_mtchu")
+
+[node name="AnimatedWolves" type="AnimatedSprite2D" parent="." groups=["wolves"]]
+position = Vector2(6.000002, 6)
+scale = Vector2(2.064516, 1.5)
+sprite_frames = SubResource("SpriteFrames_58ou0")
+animation = &"WolfWalk"
+frame_progress = 0.49770477
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_urm80")
+
+[node name="Area2D" type="Area2D" parent="." groups=["wolves"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["wolves"]]
+position = Vector2(43, -1)
+shape = SubResource("CapsuleShape2D_1w00u")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["wolves"]]
+path_desired_distance = 30.31
+simplify_path = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hfx5e")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

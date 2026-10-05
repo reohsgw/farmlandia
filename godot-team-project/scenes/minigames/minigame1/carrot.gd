@@ -1,4 +1,6 @@
 #HASEGAWA REO
+# plays the animation, detect when player touches the carrot, give carrot to the player, removes the carrot from the scene. 
+
 extends Area2D
 
 func _ready():

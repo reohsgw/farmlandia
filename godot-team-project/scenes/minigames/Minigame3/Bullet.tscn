@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1un2dn78muua"]
+
+[ext_resource type="Script" uid="uid://2hi4guefy13n" path="res://scenes/minigames/Minigame3/bullet.gd" id="1_b57y8"]
+[ext_resource type="Texture2D" uid="uid://dchq41irc7bdu" path="res://scenes/minigames/Minigame3/Bullet1.png" id="1_jk1rj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yywa6"]
+radius = 7.0
+
+[node name="Bullet" type="Node2D" groups=["Bullet"]]
+script = ExtResource("1_b57y8")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Bullet"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, 0)
+shape = SubResource("CircleShape2D_yywa6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.4305649, -2.861023e-06)
+rotation = 1.5707964
+scale = Vector2(0.08396949, 0.036346707)
+texture = ExtResource("1_jk1rj")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

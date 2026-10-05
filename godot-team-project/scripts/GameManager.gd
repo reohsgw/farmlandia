@@ -14,7 +14,13 @@ var minigame_scenes: Array = [
 	"res://scenes/minigames/WhackAMole.tscn",
 	"res://scenes/minigames/Minigame3.tscn"
 ]
-
+func _ready():
+	# Testaa eri polkuja
+	print("Test 1: ", get_node_or_null("/root/Minigame3/GameManager"))
+	print("Test 2: ", get_node_or_null("/root/GameManager"))
+	print("Test 3: ", get_tree().root.find_child("GameManager", true, false))
+	print("Test 4: ", get_node_or_null("../GameManager"))
+	
 func _process(delta: float) -> void:
 	# Count time everywhere except MainMenu
 	var current_scene = get_tree().current_scene

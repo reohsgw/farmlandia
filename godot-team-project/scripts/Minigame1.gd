@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 	if game_timer:
 		time_bar.value = game_timer.time_left
 
+#show collected vegetables amount 
 func _on_carrot_collected(new_value):
 	carrot_label.text = str(new_value)
 	collect_sfx.play()
@@ -50,11 +51,13 @@ func _on_pumpkin_collected(new_value):
 	pumpkin_label.text = str(new_value)
 	collect_sfx.play()
 
+#triggers the game over sequence when the time limit runs out
 func _on_GameTimer_timeout() -> void:
 	if is_completed:
 		return 
 	show_game_over()
-
+	
+#tell what it does when gameover happen
 func show_game_over() -> void:
 	if is_completed:
 		return
@@ -77,15 +80,19 @@ func show_game_over() -> void:
 	timer.timeout.connect(_return_failed)
 	timer.start()
 
+#what it does when win the game 
 func _on_player_won():
 	if is_completed:
 		return
 	is_completed = true
 	show_win_message()
 
+#warning message when the player tries to finish without collecting enough vegies
 func _on_player_missing_items():
 	show_need_items_message()
 
+
+#what it does when showing the mission complete message
 func show_win_message() -> void:
 	bgm.stop()
 	game_over_label.add_theme_color_override("font_color", Color(0, 1, 0))
@@ -93,7 +100,6 @@ func show_win_message() -> void:
 	game_over_label.text = "MISSION COMPLETED!"
 	win_sfx.play()
 	
-	# Disable player instead of pausing
 	$Player.set_physics_process(false)
 	$Player.set_process_input(false)
 	
@@ -104,6 +110,7 @@ func show_win_message() -> void:
 	timer.timeout.connect(_complete_and_return)
 	timer.start()
 
+#show message when vegies are not enough
 func show_need_items_message() -> void:
 	game_over_label.visible = true
 	game_over_label.text = "NOT ENOUGH ITEMS!"
@@ -111,10 +118,12 @@ func show_need_items_message() -> void:
 	await get_tree().create_timer(2.0).timeout
 	game_over_label.visible = false
 
+#completed and returns the player to the main screen
 func _complete_and_return() -> void:
 	print("Completing minigame and returning to farm...")
 	GameManager.complete_minigame(minigame_index)
 
+#returns the player to the main screen without completing the minigame
 func _return_failed() -> void:
 	print("Returning to farm without completion...")
 	GameManager.return_to_farm()

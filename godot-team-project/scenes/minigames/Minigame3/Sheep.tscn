@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://bnix3y06u5u5g"]
+
+[ext_resource type="Script" uid="uid://b40xrx0r1dpwg" path="res://scenes/minigames/Minigame3/sheep.gd" id="1_dja5r"]
+[ext_resource type="Texture2D" uid="uid://w4lmtv5n2m18" path="res://scenes/minigames/Minigame3/sheep_walk.png" id="2_sb748"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71nq7"]
+atlas = ExtResource("2_sb748")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58tgq"]
+atlas = ExtResource("2_sb748")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2vw3"]
+atlas = ExtResource("2_sb748")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ys38"]
+atlas = ExtResource("2_sb748")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shrfu"]
+atlas = ExtResource("2_sb748")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1nj7"]
+atlas = ExtResource("2_sb748")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3y2gu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71nq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58tgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2vw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ys38")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shrfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1nj7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hjbt6"]
+radius = 13.0
+height = 34.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_02yij"]
+radius = 17.0
+height = 34.0
+
+[node name="Sheep2" type="CharacterBody2D" groups=["Sheep"]]
+collision_layer = 8
+collision_mask = 27
+script = ExtResource("1_dja5r")
+
+[node name="AnimatedSheep" type="AnimatedSprite2D" parent="." groups=["Sheep"]]
+position = Vector2(2.4999905, -0.99999857)
+scale = Vector2(1.1796875, 0.65625006)
+sprite_frames = SubResource("SpriteFrames_3y2gu")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -1)
+shape = SubResource("CapsuleShape2D_hjbt6")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Sheep", "wolves"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Sheep", "wolves"]]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_02yij")
+
+[node name="Baa" type="AudioStreamPlayer2D" parent="."]
+volume_db = 2.019
+autoplay = true
+
+[node name="Timer" type="Timer" parent="Baa"]
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1j0laq5oqfgc"
+path="res://.godot/imported/Background (2).mp3-661ad9d6e2cb07ad8ff81bf20738ce7a.mp3str"
+
+[deps]
+
+source_file="res://scenes/minigames/Minigame3/Background (2).mp3"
+dest_files=["res://.godot/imported/Background (2).mp3-661ad9d6e2cb07ad8ff81bf20738ce7a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

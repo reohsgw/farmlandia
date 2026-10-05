@@ -1,3 +1,4 @@
+#Tatu Nyberg
 extends CanvasLayer
 
 # References

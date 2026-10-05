@@ -1,4 +1,6 @@
 #HASEGAWA REO
+# plays the animation, detect when player touches the pumpkin, give pumpkin to the player, removes the pumpkin from the scene. 
+
 extends Area2D
 
 func _ready():

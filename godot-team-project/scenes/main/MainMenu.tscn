@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdewrwge587tw"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_qi05h"]
+[ext_resource type="Script" uid="uid://dmx0dj77xgapf" path="res://scripts/main_menu.gd" id="1_qi05h"]
 [ext_resource type="FontFile" uid="uid://dqc8qu1fmbut2" path="res://fonts/tinypixel/tinypixel.otf" id="2_uort0"]
 [ext_resource type="Texture2D" uid="uid://yomu5iak02mi" path="res://tiles/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Sunnyside_World_ExampleScene.png" id="2_v3gjy"]
 [ext_resource type="AudioStream" uid="uid://ct3cbp203sqxo" path="res://music/menu_music.ogg" id="4_jen06"]

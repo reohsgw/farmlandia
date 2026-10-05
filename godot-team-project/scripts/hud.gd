@@ -1,3 +1,4 @@
+# Tatu Nyberg
 extends CanvasLayer
 
 @onready var progress_label = $TopPanel/HBoxContainer/ProgressLabel
